@@ -18,8 +18,8 @@ function countingSheep(num) {
   }
 
   //Recursive Case
-  console.log(`${num}: Another sheep jumps over the fence`);
-  return countingSheep(num - 1);
+  const string = `${num}: Another sheep jumps over the fence \n`;
+  return string + countingSheep(num - 1);
 }
 
 console.log(countingSheep(3));
