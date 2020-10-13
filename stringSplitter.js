@@ -12,7 +12,7 @@ What is the output of each recursive call?
   See directly above.
 */
 
-function fibonacciSequence(array, string, delimiter) {
+function stringSplitter(array, string, delimiter) {
   // Base Case
   if (string.indexOf(delimiter) === -1) {
     array.push(string);
@@ -23,7 +23,7 @@ function fibonacciSequence(array, string, delimiter) {
   array.push( string.slice( 0, string.indexOf(delimiter) ) );
   string = string.slice( string.indexOf(delimiter) + 1 );
 
-  return fibonacciSequence( array, string, delimiter );
+  return stringSplitter( array, string, delimiter );
 }
 
-console.log(fibonacciSequence([], "10/12/2020", "/"));
+console.log(stringSplitter([], "10/12/2020", "/"));

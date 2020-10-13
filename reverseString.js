@@ -19,7 +19,6 @@ function reverseString(string) {
   }
 
   //Recursive Case
-  console.log(string);
   return string[string.length - 1] + 
     reverseString( string.slice( 0, (string.length - 1) ) );
 }
