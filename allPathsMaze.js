@@ -29,7 +29,7 @@ function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   } else if (m[col][row] === ' ') {
       //Recursive Case
       m[col][row] = '1';
-
+      
       if (col < m.length - 1 && (m[col + 1][row] === ' ' || m[col + 1][row] === 'e')  ) {
         solution += 'D'
         return allPathsMaze(m, col + 1, row, solution);
