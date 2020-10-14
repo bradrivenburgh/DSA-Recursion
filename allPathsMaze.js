@@ -1,4 +1,4 @@
-// Maze - multiple routes
+// allPathsMaze
 /*
 What is the input to the program?
   An array of arrays, or N*M Matrix, the starting postion 
@@ -18,9 +18,11 @@ You can't go outside the boundaries of the maze. The maze has passages that
 are blocked and you can't go through them. These blocked passages are 
 indicated by *. Passing through a blocked cell as well as passing though a 
 cell that you have already passed before are forbidden.
+
+Find all solutions
 */
 
-function maze( m, col = 0, row = 0, solution = '' ) {
+function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   // Base Case
   if (m[col][row] === 'e') {
     return solution;
@@ -30,22 +32,22 @@ function maze( m, col = 0, row = 0, solution = '' ) {
 
       if (col < m.length - 1 && (m[col + 1][row] === ' ' || m[col + 1][row] === 'e')  ) {
         solution += 'D'
-        return maze(m, col + 1, row, solution);
+        return allPathsMaze(m, col + 1, row, solution);
       }
 
       if (row < m[col].length - 1 && (m[col][row + 1] === ' ' || m[col][row + 1] === 'e') ) {
         solution += 'R'
-        return maze(m, col, row + 1, solution);
+        return allPathsMaze(m, col, row + 1, solution);
       }
 
       if (col > 0 && (m[col - 1][row] === ' ' || m[col - 1][row] === 'e') ) {
         solution += 'U'
-        return maze(m, col - 1, row, solution);
+        return allPathsMaze(m, col - 1, row, solution);
       }
 
       if (row > 0 && (m[col][row - 1] === ' ' || m[col][row - 1] === 'e') ) {
         solution += 'L'
-        return maze(m, col, row - 1, solution);
+        return allPathsMaze(m, col, row - 1, solution);
       }
   }
 }
@@ -65,4 +67,4 @@ let myLargeMaze = [
   [' ', ' ', ' ', ' ', ' ', ' ', 'e']
 ];
 
-console.log( maze( myLargeMaze ) );
+console.log( allPathsMaze( myLargeMaze ) );
