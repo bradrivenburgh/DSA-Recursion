@@ -1,4 +1,4 @@
-// Maze
+// Maze - multiple routes
 /*
 What is the input to the program?
   An array of arrays, or N*M Matrix, the starting postion 
