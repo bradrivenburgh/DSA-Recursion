@@ -8,9 +8,9 @@ What is the output of the program?
   get to the 'e' cell of the maze
 What is the input to each recursive call?
   Instance of maze() with the maze, incremented / decremented
-  col or row, and the solution string
+  col or row
 What is the output of each recursive call?
-  The solution string
+  A character of the solution string and an instance of the function
 */
 /*
 For simplicity purpose, use the bottom right corner of the maze as the exit. 
