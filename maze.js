@@ -20,32 +20,28 @@ indicated by *. Passing through a blocked cell as well as passing though a
 cell that you have already passed before are forbidden.
 */
 
-function maze( m, col = 0, row = 0, solution = '' ) {
+function maze( m, col = 0, row = 0) {
   // Base Case
   if (m[col][row] === 'e') {
-    return solution;
+    return '';
   } else if (m[col][row] === ' ') {
       //Recursive Case
       m[col][row] = '1';
-
+      
       if (col < m.length - 1 && (m[col + 1][row] === ' ' || m[col + 1][row] === 'e')  ) {
-        solution += 'D'
-        return maze(m, col + 1, row, solution);
+        return 'D' + maze(m, col + 1, row);
       }
 
       if (row < m[col].length - 1 && (m[col][row + 1] === ' ' || m[col][row + 1] === 'e') ) {
-        solution += 'R'
-        return maze(m, col, row + 1, solution);
+        return 'R' + maze(m, col, row + 1);
       }
 
       if (col > 0 && (m[col - 1][row] === ' ' || m[col - 1][row] === 'e') ) {
-        solution += 'U'
-        return maze(m, col - 1, row, solution);
+        return 'U' + maze(m, col - 1, row);
       }
 
       if (row > 0 && (m[col][row - 1] === ' ' || m[col][row - 1] === 'e') ) {
-        solution += 'L'
-        return maze(m, col, row - 1, solution);
+        return 'L' + maze(m, col, row - 1);
       }
   }
 }

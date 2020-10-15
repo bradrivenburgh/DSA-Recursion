@@ -22,6 +22,7 @@ cell that you have already passed before are forbidden.
 Find all solutions
 */
 
+// Below reflects the maze.js before elminating the solution variable.
 function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   // Base Case
   if (m[col][row] === 'e') {
