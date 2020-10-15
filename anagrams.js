@@ -15,7 +15,6 @@ function anagrams(string) {
   if (string.length < 2) {
     return string;
   } 
-
   // Recursive Case
   const anagramsArr = []; // This array will hold our anagrams
   for (let i = 0; i < string.length; i++) {
