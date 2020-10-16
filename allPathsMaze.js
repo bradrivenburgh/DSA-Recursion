@@ -29,53 +29,22 @@ function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   } else if (m[col][row] === ' ') {
       //Recursive Case
       m[col][row] = '1';
-      
-      if (col < m.length - 1 && (m[col + 1][row] === ' ' || m[col + 1][row] === 'e')  ) {
-        allPathsMaze(m, col + 1, row, solution + 'D');
-      }
-
-      if (row < m[col].length - 1 && (m[col][row + 1] === ' ' || m[col][row + 1] === 'e') ) {
-        allPathsMaze(m, col, row + 1, solution + 'R');
-      }
-
-      if (col > 0 && (m[col - 1][row] === ' ' || m[col - 1][row] === 'e') ) {
-        allPathsMaze(m, col - 1, row, solution + 'U');
-      }
-
-      if (row > 0 && (m[col][row - 1] === ' ' || m[col][row - 1] === 'e') ) {
-        allPathsMaze(m, col, row - 1, solution + 'L');
-      }
-  } 
-
-}
-
-function allPathsMaze2( m, col = 0, row = 0, solution = '' ) {
-  // Base Case
-  if (m[col][row] === 'e') {
-    console.log(`Path to the exit: ${solution}`);
-    return `Path to the exit: ${solution}`;
-  } else if (m[col][row] === ' ') {
-      //Recursive Case
-      m[col][row] = '1';
 
       if (col < m.length - 1 && m[col + 1][row] != '*' ) {
-        allPathsMaze2(m, col + 1, row, solution + 'D');
+        allPathsMaze(m, col + 1, row, solution + 'D');
       }
-
-      if (row < m[col].length - 1 && m[col][row + 1] != '*') {
-        allPathsMaze2(m, col, row + 1, solution + 'R');
-      }
-
       if (col > 0 && m[col - 1][row] != '*') {
-        allPathsMaze2(m, col - 1, row, solution + 'U');
+        allPathsMaze(m, col - 1, row, solution + 'U');
       }
-
       if (row > 0 && m[col][row - 1] != '*') {
-        allPathsMaze2(m, col, row - 1, solution + 'L');
+        allPathsMaze(m, col, row - 1, solution + 'L');
       }
-  }
-
-  return solution;
+      if (row < m[col].length - 1 && m[col][row + 1] != '*') {
+        allPathsMaze(m, col, row + 1, solution + 'R');
+      }
+      m[col][row] = ' '
+  } 
+  return " "
 }
 
 // RD
@@ -96,7 +65,6 @@ let mySmallMaze = [
 // Path to the exit: RRDDLLDDRRRRRR
 // Path to the exit: RRDDRRRRDD
 // Path to the exit: RRDDRRUURRDDDD
-// Check 4,2
 let myLargeMaze = [
   [' ', ' ', ' ', '*', ' ', ' ', ' '],
   ['*', '*', ' ', '*', ' ', '*', ' '],
@@ -116,9 +84,7 @@ let myMedMaze = [
   [' ', ' ', ' ', ' ', 'e'],
 ];
 
-// console.log( allPathsMaze( myLargeMaze ) );
-
-console.log( allPathsMaze( myLargeMaze ) );
-// console.log( allPathsMaze2( mySmallMaze ) );
-// console.log( allPathsMaze2( myMicroMaze ) );
-// console.log( allPathsMaze2( myMedMaze ) );
+ console.log( allPathsMaze( myLargeMaze ) );
+// console.log( allPathsMaze( mySmallMaze ) );
+// console.log( allPathsMaze( myMicroMaze ) );
+// console.log( allPathsMaze( myMedMaze ) );
