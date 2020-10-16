@@ -22,7 +22,6 @@ cell that you have already passed before are forbidden.
 Find all solutions
 */
 
-// Below reflects the maze.js before elminating the solution variable.
 function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   // Base Case
   if (m[col][row] === 'e') {
@@ -56,19 +55,12 @@ function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
 function allPathsMaze2( m, col = 0, row = 0, solution = '' ) {
   // Base Case
   if (m[col][row] === 'e') {
-    // console.log('End solution: ', solution);
-    // console.log('col, row: ', col, row);
-    // console.log('m[col, row]: ', m[col, row]);    
     console.log(`Path to the exit: ${solution}`);
     return `Path to the exit: ${solution}`;
   } else if (m[col][row] === ' ') {
       //Recursive Case
       m[col][row] = '1';
 
-      // console.log('solution: ', solution);
-      // console.log('col, row: ', col, row);
-      // console.log('m[col, row]: ', m[col, row]);
-      
       if (col < m.length - 1 && m[col + 1][row] != '*' ) {
         allPathsMaze2(m, col + 1, row, solution + 'D');
       }
@@ -78,9 +70,6 @@ function allPathsMaze2( m, col = 0, row = 0, solution = '' ) {
       }
 
       if (col > 0 && m[col - 1][row] != '*') {
-      console.log('solution: ', solution);
-      console.log('col - 1, row: ', col - 1, row);
-      console.log('m[col - 1, row]: ', m[col - 1, row]);        
         allPathsMaze2(m, col - 1, row, solution + 'U');
       }
 
@@ -132,7 +121,7 @@ let myMedMaze = [
 
 // console.log( allPathsMaze( myLargeMaze ) );
 
-// console.log( allPathsMaze2( myLargeMaze ) );
+console.log( allPathsMaze2( myLargeMaze ) );
 // console.log( allPathsMaze2( mySmallMaze ) );
 // console.log( allPathsMaze2( myMicroMaze ) );
-console.log( allPathsMaze2( myMedMaze ) );
+// console.log( allPathsMaze2( myMedMaze ) );
