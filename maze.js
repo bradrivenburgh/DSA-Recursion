@@ -28,48 +28,22 @@ function maze( m, col = 0, row = 0) {
       //Recursive Case
       m[col][row] = '1';
       
-      if (col < m.length - 1 && (m[col + 1][row] === ' ' || m[col + 1][row] === 'e')  ) {
-        return 'D' + maze(m, col + 1, row);
-      }
-
-      if (row < m[col].length - 1 && (m[col][row + 1] === ' ' || m[col][row + 1] === 'e') ) {
-        return 'R' + maze(m, col, row + 1);
-      }
-
-      if (col > 0 && (m[col - 1][row] === ' ' || m[col - 1][row] === 'e') ) {
-        return 'U' + maze(m, col - 1, row);
-      }
-
-      if (row > 0 && (m[col][row - 1] === ' ' || m[col][row - 1] === 'e') ) {
-        return 'L' + maze(m, col, row - 1);
-      }
-  }
-}
-
-function maze2( m, col = 0, row = 0) {
-  // Base Case
-  if (m[col][row] === 'e') {
-    return '';
-  } else if (m[col][row] === ' ') {
-      //Recursive Case
-      m[col][row] = '1';
-      
       // Is current column within maze constraints and not blocked
       if (col < m.length - 1 && m[col + 1][row] != '*') {
-        return 'D' + maze2(m, col + 1, row);
+        return 'D' + maze(m, col + 1, row);
       }
 
       // Is current row within column array length and not blocked
       if (row < m[col].length - 1 && m[col][row + 1] != '*') {
-        return 'R' + maze2(m, col, row + 1);
+        return 'R' + maze(m, col, row + 1);
       }
 
       if (col > 0 && m[col - 1][row] != '*') {
-        return 'U' + maze2(m, col - 1, row);
+        return 'U' + maze(m, col - 1, row);
       }
 
       if (row > 0 && m[col][row - 1] != '*') {
-        return 'L' + maze2(m, col, row - 1);
+        return 'L' + maze(m, col, row - 1);
       }
   }
 }
@@ -90,5 +64,5 @@ let myLargeMaze = [
 ];
 
 //console.log( maze( myLargeMaze ) );
-console.log( maze2( mySmallMaze ) );
-console.log( maze2( myLargeMaze ) );
+console.log( maze( mySmallMaze ) );
+console.log( maze( myLargeMaze ) );
