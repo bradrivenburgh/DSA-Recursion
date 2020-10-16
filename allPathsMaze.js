@@ -53,13 +53,64 @@ function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   }
 }
 
+function allPathsMaze2( m, col = 0, row = 0, solution = '' ) {
+  // Base Case
+  if (m[col][row] === 'e') {
+    // console.log('End solution: ', solution);
+    // console.log('col, row: ', col, row);
+    // console.log('m[col, row]: ', m[col, row]);    
+    console.log(`Path to the exit: ${solution}`);
+    return `Path to the exit: ${solution}`;
+  } else if (m[col][row] === ' ') {
+      //Recursive Case
+      m[col][row] = '1';
+
+      // console.log('solution: ', solution);
+      // console.log('col, row: ', col, row);
+      // console.log('m[col, row]: ', m[col, row]);
+      
+      if (col < m.length - 1 && m[col + 1][row] != '*' ) {
+        allPathsMaze2(m, col + 1, row, solution + 'D');
+      }
+
+      if (row < m[col].length - 1 && m[col][row + 1] != '*') {
+        allPathsMaze2(m, col, row + 1, solution + 'R');
+      }
+
+      if (col > 0 && m[col - 1][row] != '*') {
+      console.log('solution: ', solution);
+      console.log('col - 1, row: ', col - 1, row);
+      console.log('m[col - 1, row]: ', m[col - 1, row]);        
+        allPathsMaze2(m, col - 1, row, solution + 'U');
+      }
+
+      if (row > 0 && m[col][row - 1] != '*') {
+        allPathsMaze2(m, col, row - 1, solution + 'L');
+      }
+  }
+
+  return solution;
+}
+
+// RD
+// DR
+let myMicroMaze = [
+  [' ', ' '],
+  [' ', 'e'],
+];
+
+// RRDD
+// DDRR
 let mySmallMaze = [
   [' ', ' ', ' '],
   [' ', '*', ' '],
   [' ', ' ', 'e']
 ];
 
-// For the above maze, a possible exit path RRDDLLDDRRRRRR
+// Path to the exit: RRDDLLDDRRRRRR
+// Path to the exit: RRDDRRRRDD
+// Path to the exit: RRDDRRUURRDDDD
+// Check 4,2
 let myLargeMaze = [
   [' ', ' ', ' ', '*', ' ', ' ', ' '],
   ['*', '*', ' ', '*', ' ', '*', ' '],
@@ -68,4 +119,20 @@ let myLargeMaze = [
   [' ', ' ', ' ', ' ', ' ', ' ', 'e']
 ];
 
-console.log( allPathsMaze( myLargeMaze ) );
+// RDDLDDRRRR
+// RDDRRRDD
+// RDDRRUUR
+let myMedMaze = [
+  [' ', ' ', '*', ' ', 'e'],
+  ['*', ' ', '*', ' ', '*'],
+  [' ', ' ', ' ', ' ', ' '],
+  [' ', '*', '*', '*', ' '],
+  [' ', ' ', ' ', ' ', 'e'],
+];
+
+// console.log( allPathsMaze( myLargeMaze ) );
+
+// console.log( allPathsMaze2( myLargeMaze ) );
+// console.log( allPathsMaze2( mySmallMaze ) );
+// console.log( allPathsMaze2( myMicroMaze ) );
+console.log( allPathsMaze2( myMedMaze ) );
