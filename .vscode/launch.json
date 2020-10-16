@@ -10,11 +10,11 @@
             ],
             "program": "${workspaceFolder}\\allPathsMaze.js"
         },
-        {
-            "type": "pwa-node",
-            "name": "Run Current File",
-            "request": "launch",
-            "program": "${workspaceFolder}/allPathsMaze.js"
-        }
+        // {
+        //     "type": "pwa-node",
+        //     "name": "Run Current File",
+        //     "request": "launch",
+        //     "program": "${workspaceFolder}/maze.js"
+        // }
     ]
 }

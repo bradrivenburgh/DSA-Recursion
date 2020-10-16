@@ -25,31 +25,28 @@ Find all solutions
 function allPathsMaze( m, col = 0, row = 0, solution = '' ) {
   // Base Case
   if (m[col][row] === 'e') {
-    return solution;
+    console.log(`Path to the exit: ${solution}`);
   } else if (m[col][row] === ' ') {
       //Recursive Case
       m[col][row] = '1';
       
       if (col < m.length - 1 && (m[col + 1][row] === ' ' || m[col + 1][row] === 'e')  ) {
-        solution += 'D'
-        return allPathsMaze(m, col + 1, row, solution);
+        allPathsMaze(m, col + 1, row, solution + 'D');
       }
 
       if (row < m[col].length - 1 && (m[col][row + 1] === ' ' || m[col][row + 1] === 'e') ) {
-        solution += 'R'
-        return allPathsMaze(m, col, row + 1, solution);
+        allPathsMaze(m, col, row + 1, solution + 'R');
       }
 
       if (col > 0 && (m[col - 1][row] === ' ' || m[col - 1][row] === 'e') ) {
-        solution += 'U'
-        return allPathsMaze(m, col - 1, row, solution);
+        allPathsMaze(m, col - 1, row, solution + 'U');
       }
 
       if (row > 0 && (m[col][row - 1] === ' ' || m[col][row - 1] === 'e') ) {
-        solution += 'L'
-        return allPathsMaze(m, col, row - 1, solution);
+        allPathsMaze(m, col, row - 1, solution + 'L');
       }
-  }
+  } 
+
 }
 
 function allPathsMaze2( m, col = 0, row = 0, solution = '' ) {
@@ -121,7 +118,7 @@ let myMedMaze = [
 
 // console.log( allPathsMaze( myLargeMaze ) );
 
-console.log( allPathsMaze2( myLargeMaze ) );
+console.log( allPathsMaze( myLargeMaze ) );
 // console.log( allPathsMaze2( mySmallMaze ) );
 // console.log( allPathsMaze2( myMicroMaze ) );
 // console.log( allPathsMaze2( myMedMaze ) );

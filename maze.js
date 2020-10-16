@@ -1,7 +1,7 @@
 // Maze
 /*
 What is the input to the program?
-  An array of arrays, or N*M Matrix, the starting postion 
+  An array of arrays, or N*M Matrix, the starting position 
   (the col and row as numbers), and the empty solution string
 What is the output of the program?
   The text sequence of Right(R) Left(L) Down(D) Up(U) to 
