@@ -10,6 +10,8 @@ What is the output of each recursive call?
   The product of num % 2 + 10 and the returned value
   from  the previous instance of binary
 
+https://www.geeksforgeeks.org/decimal-binary-number-using-recursion/
+
 Write a recursive function that prints out the binary
 representation of a given number. For example, the 
 program should take 3 as an input and print 11 as output, 
@@ -25,4 +27,4 @@ function binary(num) {
   }
 }
 
-console.log(binary(17)); //11
+console.log(binary(3)); //11
